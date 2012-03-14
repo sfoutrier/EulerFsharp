@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Euler1", "Euler1\Euler1.fsproj", "{9D48DFC9-1058-4EAD-AB38-390C57397D5A}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Euler2", "Euler2\Euler2.fsproj", "{DCC2F998-731B-4876-866E-4A284F689F36}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Euler3", "Euler3\Euler3.fsproj", "{93817E02-CE49-4C36-9692-09A0C8508640}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9D48DFC9-1058-4EAD-AB38-390C57397D5A}.Debug|x86.ActiveCfg = Debug|x86
+		{9D48DFC9-1058-4EAD-AB38-390C57397D5A}.Debug|x86.Build.0 = Debug|x86
+		{9D48DFC9-1058-4EAD-AB38-390C57397D5A}.Release|x86.ActiveCfg = Release|x86
+		{9D48DFC9-1058-4EAD-AB38-390C57397D5A}.Release|x86.Build.0 = Release|x86
+		{DCC2F998-731B-4876-866E-4A284F689F36}.Debug|x86.ActiveCfg = Debug|x86
+		{DCC2F998-731B-4876-866E-4A284F689F36}.Debug|x86.Build.0 = Debug|x86
+		{DCC2F998-731B-4876-866E-4A284F689F36}.Release|x86.ActiveCfg = Release|x86
+		{DCC2F998-731B-4876-866E-4A284F689F36}.Release|x86.Build.0 = Release|x86
+		{93817E02-CE49-4C36-9692-09A0C8508640}.Debug|x86.ActiveCfg = Debug|x86
+		{93817E02-CE49-4C36-9692-09A0C8508640}.Debug|x86.Build.0 = Debug|x86
+		{93817E02-CE49-4C36-9692-09A0C8508640}.Release|x86.ActiveCfg = Release|x86
+		{93817E02-CE49-4C36-9692-09A0C8508640}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
