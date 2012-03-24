@@ -2,13 +2,14 @@
 [<EntryPoint>]
 let main args =
 
-    let maxNum = 200000
+    let maxNum = 1000000L
 
     let sequence = function
-        | n when n % 2 = 0 -> n/2
-        | n -> 3 * n + 1
+        | n when n < 0L -> raise (System.Exception "Negative")
+        | n when n % 2L = 0L -> n/2L
+        | n -> 3L * n + 1L
 
-    let sequenceFromN = Seq.unfold (function 0 -> None | 1 -> Some (1 , 0) | n -> Some (n , sequence n) )
+    let sequenceFromN = Seq.unfold (function 0L -> None | 1L -> Some (1L , 0L) | n -> Some (n , sequence n) )
 
     let listToFoundValue startingValue foundValues = 
         Seq.unfold (fun curValue -> match Map.tryFind curValue foundValues with 
@@ -25,13 +26,12 @@ let main args =
             (0, foundValues) (listToFoundValue value foundValues )
 
     let seqOfSeqs = Seq.unfold
-                        ( fun (alreadyComputed, x) -> 
-                                if x >= maxNum then 
-                                    None 
-                                else
+                        ( function
+                            | _, x when x <= 1L -> None 
+                            | alreadyComputed, x ->
                                     let chainLength, newComputed = computeFoundValuesAndLength x alreadyComputed
-                                    Some((x, chainLength), (newComputed, x + 1) ) )
-                        ( Map.add 1 1 Map.empty, 1 )
+                                    Some((x, chainLength), (newComputed, x - 1L) ) )
+                        ( Map.add 1L 1 Map.empty, maxNum )
 
     let num, chainLength = Seq.maxBy snd seqOfSeqs
 
