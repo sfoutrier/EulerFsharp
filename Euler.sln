@@ -61,6 +61,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Euler28", "Euler28\Euler28.
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Euler29", "Euler29\Euler29.fsproj", "{BAB4F5FB-63ED-4917-A680-35DCD47CA5AC}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Euler30", "Euler30\Euler30.fsproj", "{5582402A-E7E2-4358-AB6D-7790720A9951}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -187,6 +189,10 @@ Global
 		{BAB4F5FB-63ED-4917-A680-35DCD47CA5AC}.Debug|x86.Build.0 = Debug|x86
 		{BAB4F5FB-63ED-4917-A680-35DCD47CA5AC}.Release|x86.ActiveCfg = Release|x86
 		{BAB4F5FB-63ED-4917-A680-35DCD47CA5AC}.Release|x86.Build.0 = Release|x86
+		{5582402A-E7E2-4358-AB6D-7790720A9951}.Debug|x86.ActiveCfg = Debug|x86
+		{5582402A-E7E2-4358-AB6D-7790720A9951}.Debug|x86.Build.0 = Debug|x86
+		{5582402A-E7E2-4358-AB6D-7790720A9951}.Release|x86.ActiveCfg = Release|x86
+		{5582402A-E7E2-4358-AB6D-7790720A9951}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
