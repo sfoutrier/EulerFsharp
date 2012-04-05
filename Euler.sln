@@ -29,8 +29,6 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Euler13", "Euler13\Euler13.
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Euler14", "Euler14\Euler14.fsproj", "{446AD014-29F1-4DEA-B87C-321C6E54F3A2}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Euler16", "Euler15\Euler16.fsproj", "{A4A33341-3956-4C5C-BABF-35FB5D8F9220}"
-EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Euler17", "Euler17\Euler17.fsproj", "{C0DCFDAD-FF8D-46E4-A6A6-45D5427EDBCA}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Euler18", "Euler18\Euler18.fsproj", "{A873BBDD-CB90-46A2-B2FC-79F9BC895E21}"
@@ -66,6 +64,8 @@ EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Euler31", "Euler31\Euler31.fsproj", "{FCB50022-9026-4580-BAF1-2DCA82E12750}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Euler32", "Euler32\Euler32.fsproj", "{9CC5DDF3-D3FE-4B58-9E57-26DCF4B0013B}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Euler16", "Euler16\Euler16.fsproj", "{A4A33341-3956-4C5C-BABF-35FB5D8F9220}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -129,10 +129,6 @@ Global
 		{446AD014-29F1-4DEA-B87C-321C6E54F3A2}.Debug|x86.Build.0 = Debug|x86
 		{446AD014-29F1-4DEA-B87C-321C6E54F3A2}.Release|x86.ActiveCfg = Release|x86
 		{446AD014-29F1-4DEA-B87C-321C6E54F3A2}.Release|x86.Build.0 = Release|x86
-		{A4A33341-3956-4C5C-BABF-35FB5D8F9220}.Debug|x86.ActiveCfg = Debug|x86
-		{A4A33341-3956-4C5C-BABF-35FB5D8F9220}.Debug|x86.Build.0 = Debug|x86
-		{A4A33341-3956-4C5C-BABF-35FB5D8F9220}.Release|x86.ActiveCfg = Release|x86
-		{A4A33341-3956-4C5C-BABF-35FB5D8F9220}.Release|x86.Build.0 = Release|x86
 		{C0DCFDAD-FF8D-46E4-A6A6-45D5427EDBCA}.Debug|x86.ActiveCfg = Debug|x86
 		{C0DCFDAD-FF8D-46E4-A6A6-45D5427EDBCA}.Debug|x86.Build.0 = Debug|x86
 		{C0DCFDAD-FF8D-46E4-A6A6-45D5427EDBCA}.Release|x86.ActiveCfg = Release|x86
@@ -205,6 +201,10 @@ Global
 		{9CC5DDF3-D3FE-4B58-9E57-26DCF4B0013B}.Debug|x86.Build.0 = Debug|x86
 		{9CC5DDF3-D3FE-4B58-9E57-26DCF4B0013B}.Release|x86.ActiveCfg = Release|x86
 		{9CC5DDF3-D3FE-4B58-9E57-26DCF4B0013B}.Release|x86.Build.0 = Release|x86
+		{A4A33341-3956-4C5C-BABF-35FB5D8F9220}.Debug|x86.ActiveCfg = Debug|x86
+		{A4A33341-3956-4C5C-BABF-35FB5D8F9220}.Debug|x86.Build.0 = Debug|x86
+		{A4A33341-3956-4C5C-BABF-35FB5D8F9220}.Release|x86.ActiveCfg = Release|x86
+		{A4A33341-3956-4C5C-BABF-35FB5D8F9220}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

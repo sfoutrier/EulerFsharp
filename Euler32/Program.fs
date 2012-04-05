@@ -21,7 +21,7 @@ let main args =
         Seq.map (
             fun x ->
                 numFromSeq (Seq.take x digits), numFromSeq (Seq.skip x digits)
-        ) {1..5}
+        ) {3..5}
         |> Seq.filter (fun (x, y) -> x > y)
 
     let allFactors =
@@ -42,7 +42,9 @@ let main args =
 
     let result =
         Seq.filter matchPandigital allFactors
-        |> Seq.sumBy (fun (x, y) -> x * y)
+        |> Seq.map (fun (x, y) -> x * y)
+        |> Seq.distinct
+        |> Seq.sum
 
     printfn "%d" result
 
