@@ -99,6 +99,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Euler47", "Euler47\Euler47.
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Euler48", "Euler48\Euler48.fsproj", "{FBA217C2-99D0-41E0-8B93-09CADA6A44A0}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Euler49", "Euler49\Euler49.fsproj", "{16865524-F5DA-4F5B-A902-2878E3E6B51D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -403,6 +405,12 @@ Global
 		{FBA217C2-99D0-41E0-8B93-09CADA6A44A0}.Release|Any CPU.ActiveCfg = Release|x86
 		{FBA217C2-99D0-41E0-8B93-09CADA6A44A0}.Release|x86.ActiveCfg = Release|x86
 		{FBA217C2-99D0-41E0-8B93-09CADA6A44A0}.Release|x86.Build.0 = Release|x86
+		{16865524-F5DA-4F5B-A902-2878E3E6B51D}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{16865524-F5DA-4F5B-A902-2878E3E6B51D}.Debug|x86.ActiveCfg = Debug|x86
+		{16865524-F5DA-4F5B-A902-2878E3E6B51D}.Debug|x86.Build.0 = Debug|x86
+		{16865524-F5DA-4F5B-A902-2878E3E6B51D}.Release|Any CPU.ActiveCfg = Release|x86
+		{16865524-F5DA-4F5B-A902-2878E3E6B51D}.Release|x86.ActiveCfg = Release|x86
+		{16865524-F5DA-4F5B-A902-2878E3E6B51D}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
