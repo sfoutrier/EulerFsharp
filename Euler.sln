@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2012 for Web
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Euler1", "Euler1\Euler1.fsproj", "{9D48DFC9-1058-4EAD-AB38-390C57397D5A}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Euler2", "Euler2\Euler2.fsproj", "{DCC2F998-731B-4876-866E-4A284F689F36}"
@@ -121,7 +123,12 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Euler58", "Euler58\Euler58.
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Euler59", "Euler59\Euler59.fsproj", "{86E7D82A-2B51-417A-906B-768DBA5DA79C}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Euler60", "Euler60\Euler60.fsproj", "{92B6F348-C90C-4F7D-AFBA-E7767953446D}"
+EndProject
 Global
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -633,6 +640,18 @@ Global
 		{86E7D82A-2B51-417A-906B-768DBA5DA79C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{86E7D82A-2B51-417A-906B-768DBA5DA79C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{86E7D82A-2B51-417A-906B-768DBA5DA79C}.Release|x86.ActiveCfg = Release|Any CPU
+		{92B6F348-C90C-4F7D-AFBA-E7767953446D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92B6F348-C90C-4F7D-AFBA-E7767953446D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92B6F348-C90C-4F7D-AFBA-E7767953446D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{92B6F348-C90C-4F7D-AFBA-E7767953446D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{92B6F348-C90C-4F7D-AFBA-E7767953446D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{92B6F348-C90C-4F7D-AFBA-E7767953446D}.Debug|x86.Build.0 = Debug|Any CPU
+		{92B6F348-C90C-4F7D-AFBA-E7767953446D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92B6F348-C90C-4F7D-AFBA-E7767953446D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92B6F348-C90C-4F7D-AFBA-E7767953446D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{92B6F348-C90C-4F7D-AFBA-E7767953446D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{92B6F348-C90C-4F7D-AFBA-E7767953446D}.Release|x86.ActiveCfg = Release|Any CPU
+		{92B6F348-C90C-4F7D-AFBA-E7767953446D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
