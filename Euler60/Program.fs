@@ -3,8 +3,6 @@ open System
 open System.Collections.Generic
 open System.Linq
 
-let maxPrime = 1000
-
 let primesTo maxOfSieve = 
 
     let rec sieve position elements =
@@ -20,91 +18,67 @@ let primesTo maxOfSieve =
 
     sieve 0 [|1..maxOfSieve|] |> Array.filter (fun i -> i <> 1)
 
-let seedPrimes = primesTo maxPrime
-let maxPrimeTesting = (fun i -> i * i) (int64 maxPrime)
-let isPrime i =
-    match i with
-    | i when int64 i > maxPrimeTesting -> failwith "Going above maxPrime"
-    | i ->
-        Seq.takeWhile (fun p -> i > p) seedPrimes
-        |> Seq.forall (fun p -> i % p <> 0)
-
 [<EntryPoint>]
 let main argv =
-    let nbToFind = 4
-    let indexedPrimes = Seq.indexed seedPrimes |> Map.ofSeq
 
-    let mapPrimes p = Map.find p indexedPrimes
-    let sumCandidates = Array.sumBy mapPrimes
-    let mapCandidate = Array.map mapPrimes
-    let initialCandidates = [|0..nbToFind-1|]
+    let nbToFind = 5
+    let maxPrime = 10000
+    printfn "Computing primes"
+    let seedPrimes = primesTo maxPrime
+    printfn "Seed primes computed"
 
-    printfn "Initial candidates: %A" (mapCandidate initialCandidates)
+    let maxPrimeTesting = (fun i -> i * i) (int64 maxPrime)
+    let isPrime i =
+        match i with
+        | i when int64 i > maxPrimeTesting -> failwith "Going above maxPrime"
+        | i ->
+            Seq.takeWhile (fun p -> i > p) seedPrimes
+            |> Seq.forall (fun p -> i % p <> 0)
 
-    // splits a candidate to n others + their sum
-    let split = function
-        | c, _ ->
-            seq {
-                for i in 0..Array.length c - 1 ->
-                    match c.[i] with
-                    // if last element or lower than the next one (to keep only ordered tuples)
-                    | j when i = Array.length c - 1 || j + 1 < c.[i+1] ->
-                        let newCandidate = Array.copy c
-                        newCandidate.[i] <- j + 1
-                        Some(newCandidate)
-                    | _ -> None }
-            |> Seq.filter (function None -> false | _ -> true)
-            |> Seq.map (function Some(c) -> c, sumCandidates c)
-            |> Seq.toList
+    let checkPair (p1, p2) =
+        let checkHalfPair (p1, p2) =
+            sprintf "%i%i" p1 p2 |> int |> isPrime
+        checkHalfPair (p1, p2) && checkHalfPair (p2, p1)
 
-    let tree = new SortedDictionary<int, int[] Set>()
+    let findPrimePairsOf prime =
+        seedPrimes
+        |> Seq.takeWhile ((>) prime)
+        |> Seq.filter (fun p -> checkPair (p, prime))
+        |> Set.ofSeq
 
-    let dump () =
-        for segment in tree do
-            printf "%i -> " segment.Key
-            for candidate in segment.Value do
-                printf "%A " (mapCandidate candidate)
-            printfn ""
+    let rec haveNPairs n prime pairs computedPairs =
+        match n with
+        | 0 -> Seq.singleton [prime]
+        | _ -> Seq.map
+                ( fun p ->
+                    match Set.intersect pairs (Map.find p computedPairs) with
+                    | pairsOfP when Set.count pairsOfP < (n-1) ->
+                        //printfn "Not enough pairs for %i (expected %i): %A" p n pairsOfP
+                        Seq.empty
+                    | pairsOfP ->
+                        haveNPairs (n-1) p pairsOfP computedPairs
+                ) pairs |> Seq.concat |> Seq.map (fun r -> prime::r) 
 
-    let insert (candidate, sum) =
-        match tree.ContainsKey sum with
-        | false -> tree.Add (sum, Set.singleton candidate)
-        | true -> tree.[sum] <- Set.add candidate tree.[sum]
+    let rec scanPrimes computedPairs acc =
+        function
+        | [] -> Seq.concat acc
+        | p::tail ->
+            let pairsOfN = findPrimePairsOf p
+            //printfn "%d -> %A" p pairsOfN
+            scanPrimes
+                (Map.add p pairsOfN computedPairs)
+                ((haveNPairs (nbToFind-1) p pairsOfN computedPairs)::acc)
+                tail
 
-    let pop () =
-        let key = tree.Keys.First()
-        let segment = tree.[key]
-        let first = Set.minElement segment
-        match Set.count segment with
-        | 1 -> tree.Remove(key) |> ignore
-        | _ -> tree.[key] <- Set.remove first segment
-        first
+    let foundPairs = scanPrimes (Map.empty) [] (List.ofArray seedPrimes)
+    let pairsWithSum = foundPairs |> Seq.map (fun p -> (List.sum p, p)) |> Seq.sortBy fst |> Seq.toList
+    //pairsWithSum |> Seq.iter (printfn "Found %A")
 
-    let checkPair (x, y) =
-        let toCheck = sprintf "%i%i" (mapPrimes x) (mapPrimes y) |> int
-        //printfn "Testing prime of %i" toCheck
-        toCheck |> isPrime
-
-    let checkCandidate (c:int[]) =
-        seq { for i in 0..nbToFind-1 do
-                for j in 0..nbToFind-1 do
-                    yield (i, j) }
-        |> Seq.forall (fun (x, y) -> x = y || checkPair (c.[x], c.[y]))
-
-    let rec findMatchingCandidate () =
-        //dump ()
-        let candidate = pop()
-        //printfn "Checking %A" (mapCandidate candidate)
-        match checkCandidate candidate with
-        | true -> candidate
-        | false ->
-            split (candidate, sumCandidates candidate) |> List.iter insert
-            findMatchingCandidate ()
-
-    insert (initialCandidates, sumCandidates initialCandidates)
-    let matchingCandidate = findMatchingCandidate ()
-
-    printfn "%A" (mapCandidate matchingCandidate)
+    match pairsWithSum with
+    | (first, _)::_ when first < Array.head seedPrimes ->
+        printfn "Could have a smaller tuple, try with bigger  maxPrimes"
+    | res::_ -> printfn "Definitive result: %A" res
+    | [] -> printfn "No result found, increase maxPrimes"
 
     let _ = Console.ReadLine()
     0 // return an integer exit code
