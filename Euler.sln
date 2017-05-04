@@ -125,10 +125,9 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Euler59", "Euler59\Euler59.
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Euler60", "Euler60\Euler60.fsproj", "{92B6F348-C90C-4F7D-AFBA-E7767953446D}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Euler61", "Euler61\Euler61.fsproj", "{F34EE6B9-3371-4F93-9B0E-260AE643A891}"
+EndProject
 Global
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -652,8 +651,23 @@ Global
 		{92B6F348-C90C-4F7D-AFBA-E7767953446D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{92B6F348-C90C-4F7D-AFBA-E7767953446D}.Release|x86.ActiveCfg = Release|Any CPU
 		{92B6F348-C90C-4F7D-AFBA-E7767953446D}.Release|x86.Build.0 = Release|Any CPU
+		{F34EE6B9-3371-4F93-9B0E-260AE643A891}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F34EE6B9-3371-4F93-9B0E-260AE643A891}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F34EE6B9-3371-4F93-9B0E-260AE643A891}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F34EE6B9-3371-4F93-9B0E-260AE643A891}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F34EE6B9-3371-4F93-9B0E-260AE643A891}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F34EE6B9-3371-4F93-9B0E-260AE643A891}.Debug|x86.Build.0 = Debug|Any CPU
+		{F34EE6B9-3371-4F93-9B0E-260AE643A891}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F34EE6B9-3371-4F93-9B0E-260AE643A891}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F34EE6B9-3371-4F93-9B0E-260AE643A891}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{F34EE6B9-3371-4F93-9B0E-260AE643A891}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{F34EE6B9-3371-4F93-9B0E-260AE643A891}.Release|x86.ActiveCfg = Release|Any CPU
+		{F34EE6B9-3371-4F93-9B0E-260AE643A891}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
 	EndGlobalSection
 EndGlobal
