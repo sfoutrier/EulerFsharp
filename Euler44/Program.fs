@@ -1,29 +1,39 @@
 ﻿// http://projecteuler.net/problem=44
+open System
 
 [<EntryPoint>]
 let main args =
 
-    let p n = n * (3L * n - 1L) / 2L
-    let p2 n =
-        p (2L * n), p (2L * n + 1L)
+    let penta n = n*(3L*n-1L)/2L
+    // n = x(3x-1)/2
+    // <=>3x² - x -2n = 0
+    //    => delta = 24n
+    //    => x1 = - sqrt(24n)/6 (<0) | x2 = sqrt(24n)/6 (>0)
+    let reversePenta n = (int64 << (Math.Round:float->float)) (sqrt (24. * (float n)) /6.)
+    let isPenta n = n = (penta << reversePenta) n
+    let pentasFromTo s n = Seq.unfold (function i when i = n -> None | i -> Some(penta i, i+1L) ) s
+
+    let rec findPentaPair minPair n =
+        let delta = function (a,b) -> a-b
+        let min x y = match delta x < delta y with true -> x | false -> y
+        let pentaN = penta n
+        let startScanPosition = match minPair with Some(x) -> reversePenta (pentaN - (delta x)) | _ -> 1L
+        match minPair with 
+        // first let's stop when the gap have reached the min delta
+        | Some(x) when delta x < pentaN - penta (n-1L)-> minPair
+        | _ ->
+            let newFoundPairs =
+                // build pairs with our last client, start computing at where a smaller delta may be found
+                Seq.map (fun p -> pentaN, p) (pentasFromTo startScanPosition n)
+                // filter pairs matching our criteria
+                |> Seq.filter (fun (a, b) -> isPenta (a-b) && isPenta (a+b))
+                // keep the min one
+                |> Seq.fold (fun state p -> match state with None -> Some(p) | Some(p2) -> Some(min p p2)) minPair
+            findPentaPair newFoundPairs (n+1L)
     
-    let pentagonalsSet =
-        Seq.scan (fun set (p1, p2) -> Set.add p1 (Set.add p2 set)) Set.empty (Seq.initInfinite (int64>>p2))
+    match findPentaPair None 1L with
+    | Some(a,b) -> printfn "Result=%A with delta %d" (a,b) (a-b)
 
-    let seqOfPentasUnder (n, pentas) =
-        seq {
-            for j in 1L..(n-1L) do
-                let x = p n
-                let y = p j 
-                if Set.contains (x+y) pentas && Set.contains (x-y) pentas then
-                    yield x, y}
-
-    let pentaWithSumAndDiff =
-        Seq.zip (Seq.initInfinite (int64)) pentagonalsSet
-        |> Seq.map seqOfPentasUnder
-        |> Seq.concat
-
-    Seq.iter (fun (x, y) -> printfn "%d %d" x y) pentaWithSumAndDiff
-
-    let _ = System.Console.ReadKey true
+    printfn "Done"
+    let _ = Console.ReadLine()
     0
