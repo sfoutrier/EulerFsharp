@@ -32,6 +32,3 @@ module Euler8 =
                 if position < input.Length - 4 then Some(sumBlock input.[position..position+4], position + 1) else None ) 0
 
         printfn "%d" result
-
-    let _ = System.Console.ReadKey true
-    0

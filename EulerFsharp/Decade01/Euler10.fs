@@ -8,7 +8,7 @@ module Euler10 =
         let removeMultipleOf x = List.filter (fun y -> y % x <> 0 || y = x)
         let rec removeNotPrimes = function
             | index, curList when index < List.length curList ->
-                removeNotPrimes (index + 1, removeMultipleOf ( List.nth curList index) curList)
+                removeNotPrimes (index + 1, removeMultipleOf ( List.item index curList) curList)
             | _, endList -> endList
 
         let primes = removeNotPrimes (0, [ 2..last])
